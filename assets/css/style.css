@@ -1,14 +1,39 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    --stand-font-size: 28px;
+    --dot-size: 50px;
+    --bot-pos: 25vh;
+    --top-pos: 90vh;
+    --left-pos: 5vw;
+    --right-pos: 90vw;
+    --horiz: 2;
+    --vert: 1.5;
+}
+
+/* Header/Nav */
+body {
+    background-color: white;
+}
+
 header {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    margin: 15% 2%;
-    font-size: 35px;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    font-size: 48px;
 
     > * {
-        padding: 2% 0;
+        padding: 2% 2%;
     }
+/* 
+    div {
+        padding-left: 10%;
+    } */
 }
+
+
 
 h1 {
     font-size: 60px;
@@ -16,17 +41,298 @@ h1 {
 }
 
 nav {
-    padding: 15px 20px;
+    height: 10vh;
+    margin-bottom: 10vh;
     background-color: gray;
+    font-size: var(--stand-font-size);
+}
 
-    ul {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-end;
+.page-navigation ul {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
 
-        li {
-            padding: 0 2%;
-            margin: 0 3%;
+    > li {
+        align-self: center;
+        padding: 1% 2%;
+        background-color: azure;
+        text-shadow: 0px 1px black;
+        box-shadow: 5px 5px 2px black;
+        margin: 0 4%;
+
+        > div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            z-index: 1;
+            background-color: black;
         }
     }
+    
+    /* @keyframes nav {
+        0%     {background-color: azure;}
+        100%   {background-color: aqua}
+    }
+    > li:hover {
+        animation-name: nav;
+        background-color: aqua;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    } */
+}
+
+/* dots animation */
+
+@keyframes southwest {
+    0%   {bottom: var(--bot-pos);}
+    63%  {scale: 1 var(--vert)}
+    100% {bottom: var(--top-pos)}
+}
+
+@keyframes northwest {
+    0%   {left: var(--left-pos);}
+    70%  {scale: var(--horiz) 1}
+    100% {left: var(--right-pos)}
+}
+
+@keyframes northeast {
+    0%   {bottom: var(--top-pos);}
+    63%  {scale: 1 var(--vert)}
+    100% {bottom: var(--bot-pos);}
+}
+
+@keyframes southeast {
+    0%   {left: var(--right-pos);}
+    70%  {scale: var(--horiz) 1}
+    100% {left: var(--left-pos)}
+}
+
+.dot div{
+    position: absolute;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: white;
+    mix-blend-mode: difference;
+    border-radius: 100%;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-delay: .5s;
+}
+
+#SW {
+    bottom: var(--bot-pos);
+    left: var(--left-pos);
+    animation-name: southwest;
+}
+
+#NW {
+    bottom: var(--top-pos);
+    left: var(--left-pos);
+    animation-name: northwest;
+}
+
+#NE {
+    bottom: var(--top-pos);
+    left: var(--right-pos);
+    animation-name: northeast;
+}
+
+#SE {
+    bottom: var(--bot-pos);
+    left: var(--right-pos);
+    animation-name: southeast;
+}
+
+/* Projects */
+
+main {
+    display: flex;
+    flex-flow: column;
+    text-align: right;
+}
+
+.highlights {
+    display: flex;
+    flex: 2 3 auto;
+    justify-content: flex-end;
+    font-size: var(--stand-font-size);
+}
+
+.highlights > * {
+    border: solid thin black;
+    width: 35%;
+    height: 40vh;
+}
+
+.highlights {
+    text-align: center;
+    h3 {
+        font-weight: bold;
+    }
+}
+
+#about-me, #newest-work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.projects ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    max-width: 80vw;
+
+    li {
+        border: solid thin black;
+        width: 30vw;
+        height: 30vh;
+
+    }
+}
+
+/* Contacts */
+
+footer {
+    height: 10vh;
+    margin-top: 10vh;
+    background-color: gray;
+    font-size: var(--stand-font-size);
+}
+
+.contacts ul {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+
+    > li {
+        align-self: center;
+        padding: 0 2%;
+        margin: 0 4%;
+    }
+}
+
+/* Screen Breakpoints */
+
+@media screen and (max-width: 1024px) {
+    nav {
+        height: 20vh;
+        margin-bottom: 10vh;
+    }
+
+    .page-navigation ul {
+        justify-content: center;        
+    }
+    
+    .highlights {
+        flex-flow: column wrap;
+        align-content: flex-end;
+        justify-content:flex-start;
+    }
+
+    .highlights > * {
+        border: solid thin black;
+        width: 80%;
+    }
+
+    .projects ul {
+        li {
+            width: 70vw;
+        }
+    }
+
+    footer {
+        height: 25vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        height:65vh;
+    }
+    
+    nav {
+        height: 25vh;
+    }
+    
+    .highlights > * {
+        border: solid thin black;
+        width: 100%;
+        height: 400px;
+    }
+
+    .projects ul {
+        li {
+            width: 100vw;
+            height: 350px;
+        }
+    }
+    
+    :root {
+        --bot-pos: 40vh; 
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        height:70vh;
+    }
+    
+    nav {
+        height: 30vh;
+        margin-bottom: 5vh;
+    }
+
+    .page-navigation ul {
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+
+    footer {
+        height: 30vh;
+    }
+
+    .contacts ul {
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+
+    :root {
+        --bot-pos: 35vh; 
+        --dot-size: 40px;
+        --horiz: 1.15;
+        --vert: 1.15;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    
+    /* scale fonts */
+    header {
+        font-size: 35px;
+        text-align: center;
+
+        h1 {
+            font-size: 45px;
+        }
+
+        div {
+            padding: 2% 0;
+        }
+    }
+
+    .projects ul {
+        max-width: 100vw;
+    }
+
+    
 }

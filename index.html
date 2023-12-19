@@ -3,6 +3,7 @@
     
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Jordan Burton | Aspiring Developer</title>
@@ -16,15 +17,18 @@
         - add cursor follower
     -->
     <header>
-        <h1>To Develop Is To Create</h1>
+        <h1><div class="bg-box"></div>To Develop Is To Create</div></h1>
         <div>
             <!-- make "create" turn into "develop" when hovered over -->
-            <h2>Now let us <span>create</span> together</h2>
+            <h2>Now let us</h2>
+            <span id="create-develop">create</span>
+            <h2>together</h2>
         </div>
+        <div class="header-bg"></div>
     </header>
 
     <!-- navigation bar to jump to various parts of the page -->
-    <nav>
+    <nav class="page-navigation">
         <ul>
             <li>About Me</li>
             <li>Projects</li>
@@ -32,34 +36,54 @@
         </ul>
     </nav>
 
+    <div class="top-wrapper"></div>
+
+    <div class="dot">
+        <div id="SW"></div>
+        <div id="NW"></div>
+        <div id="NE"></div>
+        <div id="SE"></div>
+    </div>
+
     <main>
         <!-- About me and new project -->
-        <div>
-            <article>
+        <div class="highlights">
+            <article id="about-me">
                 <!-- about me block -->
-                <h2>From Rocket Science to Web Dev</h2>
+                <h3>From Rocket Science to Web Dev</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Natus eveniet minus asperiores ratione exercitationem 
-                    molestiae neque nostrum quas accusamus quod pariatur 
-                    nobis nemo placeat, illum, excepturi voluptates quaerat 
-                    quis itaque?
+                    Natus eveniet minus asperiores ratione exercitatione
                 </p>
             </article>
             <!-- Newest Work/Project block -->
-            <div>
-                <h2>P.I.P.</h2>
-                <h2>(Project-In-Progress)</h2>
+            <div id="newest-work">
+                <h3>P.I.P.</h3>
+                <h3>(Project-In-Progress)</h3>
             </div>
         </div>
 
         <!-- list of my projects -->
-        <div>
+        <div class="projects">
             <ul>
                 <li>
-                    <img src="#" alt="placeholder">
+                    <div>
+                        <h4>title 1</h4>
+                    </div>>
                 </li>
                 <li>
-                    <img src="#" alt="placeholder">
+                    <div>
+                        <h4>title 2</h4>
+                    </div>>
+                </li>
+                <li>
+                    <div>
+                        <h4>title 3</h4>
+                    </div>>
+                </li>
+                <li>
+                    <div>
+                        <h4>title 4</h4>
+                    </div>>
                 </li>
             </ul>
         </div>
@@ -67,10 +91,10 @@
     </main>
 
     <!-- contact info -->
-    <footer>
+    <footer class="contacts">
         <ul>
-            <li></li>
-            <li></li>
+            <li><a href="mailto:jordane.burton@gmail.com" target="#">Email</a></li>
+            <li><a href="https://github.com/jordaneburton" target="#">Github</a></li>
         </ul>
     </footer>
 </body>
