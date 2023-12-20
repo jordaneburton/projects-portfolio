@@ -209,7 +209,6 @@ main {
 
 #about-me, #newest-work {
     display: flex;
-    /* position: relative; */
     line-height: 34px;
     flex-direction: column;
     justify-content: center;
@@ -217,9 +216,16 @@ main {
     background-color: var(--prim-color-fade);
     transition: background-color .5s, scale .5s;
     transition-timing-function: ease-out 100ms;
+    h3 {
+        position: relative;
+    }
 }
 
-h3 span{
+#about-header{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    right: 15%;
     transition: opacity 1s;
 }
 
@@ -240,7 +246,7 @@ h3 p{
     background-color: var(--prim-color);
     scale: 1.25;
     z-index: 1;
-    span {
+    #about-header {
         opacity: 0%;
     }
     p {
@@ -283,24 +289,51 @@ h4 {
     font-weight: bold;
 }
 
+@keyframes name-sign {
+    0%   {background-color: var(--prim-color-fade)}
+    17%  {background-color: var(--prim-color)}
+    33%  {background-color: var(--sec-color-fade)}
+    50%  {background-color: var(--sec-color)}
+    67%  {background-color: var(--acc-color-fade)}
+    83% {background-color: var(--acc-color)}
+    100% {background-color: var(--prim-color-fade)}
+}
+
 #name-column {
   writing-mode: vertical-lr;
   text-orientation: upright;
   text-align: justify;
-  background-color: var(--prim-color);
   position: absolute;
-  height: -webkit-fill-available;
+  left: 80px;
+  width: 200px;
+  padding: 50px 0;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 200px;
+  div {
+    position: absolute;
+    z-index: -2;
+    rotate: 5deg;
+    width: 125px;
+    height: 100px;
+    right: 30px;
+    border-right: var(--column-border);
+    border-left: var(--column-border);
+    animation-name: name-sign;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
 }
 
-#name-bar {
+/* #name-bar {
     position: absolute;
-    background-color: var(--prim-color);
     width: 100vw;
     height: 100px;
     z-index: -1;
-    /* text-align: justify; */
+    text-align: justify;
     
-}
+} */
 
 /* Contacts */
 
