@@ -415,11 +415,16 @@ footer {
     background-color: black;
     position: relative;
     display: flex;
-    /* display: none; */
-    white-space: nowrap;
     padding: 5px;
     color: white;
+    flex-flow: column wrap;
+    align-items: center;
+    
+    /* TEMPORARY: PROPERTIES FOR TICKET ANIMATION */
+    /* white-space: nowrap;
     overflow: hidden;
+    padding-left: 120%; */
+
     span {
         position: relative;
         z-index: 1;
@@ -439,11 +444,12 @@ footer {
     }
 }
 
-@keyframes footer-wrapper {
+/* TEMPORARY: FOR TICKET ANIMATION */
+/* @keyframes footer-wrapper {
     0%   {}
     50%  {}
     100% {}
-}
+} */
 
 /* Screen Breakpoints */
 
