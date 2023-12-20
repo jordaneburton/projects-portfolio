@@ -14,11 +14,21 @@
     --horiz: 2;
     --vert: 1.5;
     --stan-border: solid thick black;
+    --thick-border: solid 7px black;
+    --column-border: solid 10px black;
+    --sec-color-fade: lightcyan;
+    --sec-color: aqua;
+    --prim-color-fade: lightpink;
+    --prim-color: rgb(255, 105, 233);
+    --acc-color-fade: lightyellow;
+    --acc-color: yellow;
 }
 
 /* Header/Nav */
 body {
     background-color: white;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 header {
@@ -64,7 +74,7 @@ nav {
         align-self: center;
         padding: 1% 2%;
         position: relative;
-        background-color: lightcyan;
+        background-color: var(--sec-color-fade);
         text-shadow: 0px 1px black;
         box-shadow: 5px 5px 2px black;
         margin: 0 4%;
@@ -85,7 +95,7 @@ nav {
 
 .page-navigation li:hover {
     scale: 1.5;
-    background-color: aqua;
+    background-color: var(--sec-color);
     rotate: -5deg;
     box-shadow: 7px 7px 3px;
 }
@@ -169,6 +179,7 @@ nav {
 
 main {
     display: flex;
+    position: relative;
     flex-flow: column;
     text-align: right;
 }
@@ -188,11 +199,12 @@ main {
 
 .highlights {
     text-align: center;
-    h3 span{
-        display: flex;
-        flex-direction: column;
-        font-weight: bold;
-    }
+}
+
+#about-me span, #newest-work h3{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
 }
 
 #about-me, #newest-work {
@@ -202,8 +214,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 205, 129);
-    transition: background-color 1s, scale 1s;
+    background-color: var(--prim-color-fade);
+    transition: background-color .5s, scale .5s;
     transition-timing-function: ease-out 100ms;
 }
 
@@ -219,13 +231,15 @@ h3 p{
 }
 
 #newest-work:hover {
-    background-color: orange;
+    background-color: var(--prim-color);
     scale: 1.25;
+    z-index: 1;
 }
 
 #about-me:hover {
-    background-color: orange;
+    background-color: var(--prim-color);
     scale: 1.25;
+    z-index: 1;
     span {
         opacity: 0%;
     }
@@ -246,11 +260,46 @@ h3 p{
     max-width: 80vw;
 
     li {
-        border: solid thin black;
+        border: solid 4px black;
+        margin: 3px;
         width: 30vw;
         height: 30vh;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--acc-color-fade);
+        transition: background-color .5s;
+        transition-timing-function: ease-out 100ms;
     }
+}
+
+.projects ul li:hover {
+    background-color: var(--acc-color);
+}
+
+h4 {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: bold;
+}
+
+#name-column {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-align: justify;
+  background-color: var(--prim-color);
+  position: absolute;
+  height: -webkit-fill-available;
+}
+
+#name-bar {
+    position: absolute;
+    background-color: var(--prim-color);
+    width: 100vw;
+    height: 100px;
+    z-index: -1;
+    /* text-align: justify; */
+    
 }
 
 /* Contacts */
@@ -293,7 +342,6 @@ footer {
     }
 
     .highlights > * {
-        border: solid thin black;
         width: 80%;
     }
 
@@ -323,7 +371,6 @@ footer {
     }
     
     .highlights > * {
-        border: solid thin black;
         width: 100%;
         height: 400px;
     }
@@ -334,7 +381,18 @@ footer {
             height: 350px;
         }
     }
+
+    #about-me, #newest-work, .projects li {
+        border: var(--thick-border);
+    }
+
+    #newest-work:hover {
+        scale: 1;
+    }
     
+    #about-me:hover {
+        scale: 1;
+    }
     :root {
         --bot-pos: 40vh;
         --dot-size: 35px;
@@ -356,6 +414,12 @@ footer {
         flex-direction: column;
         justify-content: space-around;
         
+    }
+
+    #about-me, #newest-work, .projects li {
+        border-top: var(--column-border);
+        border-bottom: var(--column-border);
+        /* box-shadow: 5px 5px 2px black; */
     }
 
     footer {
@@ -403,5 +467,4 @@ footer {
         --box-size: 275px;
         --box-rotate: -5deg;
     }
-
 }
