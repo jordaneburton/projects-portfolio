@@ -52,7 +52,6 @@ header {
 }
 
 
-
 h1 {
     font-size: 60px;
     font-weight: bolder;
@@ -216,6 +215,7 @@ main {
     background-color: var(--prim-color-fade);
     transition: background-color .5s, scale .5s;
     transition-timing-function: ease-out 100ms;
+    
     h3 {
         position: relative;
     }
@@ -236,6 +236,8 @@ h3 p{
     transition: opacity 1s;
 }
 
+/* project boxes animations */
+
 #newest-work:hover {
     background-color: var(--prim-color);
     scale: 1.25;
@@ -246,6 +248,7 @@ h3 p{
     background-color: var(--prim-color);
     scale: 1.25;
     z-index: 1;
+
     #about-header {
         opacity: 0%;
     }
@@ -291,13 +294,13 @@ h4 {
 
 /* animation for name banner */
 
-@keyframes name-sign {
+@keyframes banner {
     0%   {background-color: var(--prim-color-fade)}
     17%  {background-color: var(--prim-color)}
     33%  {background-color: var(--sec-color-fade)}
     50%  {background-color: var(--sec-color)}
     67%  {background-color: var(--acc-color-fade)}
-    83% {background-color: var(--acc-color)}
+    83%  {background-color: var(--acc-color)}
     100% {background-color: var(--prim-color-fade)}
 }
 
@@ -312,6 +315,7 @@ h4 {
   font-size: 40px;
   font-weight: bold;
   line-height: 200px;
+
   div {
     position: absolute;
     z-index: -2;
@@ -321,11 +325,21 @@ h4 {
     right: 30px;
     border-right: var(--column-border);
     border-left: var(--column-border);
-    animation-name: name-sign;
+    animation-name: banner;
     animation-duration: 12s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }
+}
+
+#name-header {
+    display: none;
+    margin-top: 14%;
+    border-radius: 5px;
+    animation-name: banner;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 /* Wasn't working: might REVISIT */
@@ -360,7 +374,9 @@ h4 {
 /* Contacts */
 
 footer {
-    height: 10vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     margin-top: 10vh;
     background-color: gray;
     font-size: var(--stand-font-size);
@@ -369,13 +385,64 @@ footer {
 .contacts ul {
     display: flex;
     justify-content: space-evenly;
-    height: 100%;
+    flex: 1 1 20px;
 
     > li {
-        align-self: center;
-        padding: 0 2%;
-        margin: 0 4%;
+        display: flex;
+        font-weight: bold;
+        margin: 5% 4% 5%;
+        justify-content: center;
+
+        img {
+            vertical-align: middle;
+            background-color: white;
+        }
     }
+}
+
+#email-icon {
+    img {border-radius: 5px;}
+    min-height: 50px;
+}
+
+#github-icon {
+    img {border-radius: 120px;}
+}
+
+/* footer wrapper and animation */
+
+#wrapper-tag {
+    background-color: black;
+    position: relative;
+    display: flex;
+    /* display: none; */
+    white-space: nowrap;
+    padding: 5px;
+    color: white;
+    overflow: hidden;
+    span {
+        position: relative;
+        z-index: 1;
+        margin: 10px 5px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        text-shadow: 3px 3px 2px aqua;
+    }
+    
+    a:visited {
+        color: white;
+        text-shadow: 3px 3px 2px hotpink;
+        /* text-shadow: none; */
+    }
+}
+
+@keyframes footer-wrapper {
+    0%   {}
+    50%  {}
+    100% {}
 }
 
 /* Screen Breakpoints */
@@ -421,9 +488,13 @@ footer {
     #name-column {
         display: none;
     }
-    #name-bar {
-        display: flex;
+
+    #name-header {
+        display: block;
     }
+    /* #name-bars {
+        display: flex;
+    } */
 
     :root {
         --dot-size: 40px;
