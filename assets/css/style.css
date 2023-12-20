@@ -289,6 +289,8 @@ h4 {
     font-weight: bold;
 }
 
+/* animation for name banner */
+
 @keyframes name-sign {
     0%   {background-color: var(--prim-color-fade)}
     17%  {background-color: var(--prim-color)}
@@ -326,14 +328,34 @@ h4 {
   }
 }
 
-/* #name-bar {
-    position: absolute;
+/* Wasn't working: might REVISIT */
+
+/* #name-bars {
+    position: relative;
+    text-orientation: upright;
+    z-index: 2;
     width: 100vw;
-    height: 100px;
-    z-index: -1;
     text-align: justify;
-    
+    span {
+        position: absolute;
+        font-weight: bold;
+        font-size: 32px;
+        top: -5px;
+        color: white;
+    }
 } */
+
+#first-name {
+    writing-mode: vertical-lr;
+    text-shadow: 3px 3px 2px black, -3px -3px 2px black;
+    left: 15px;
+}
+
+#last-name {
+    writing-mode: vertical-rl;
+    text-shadow: 3px -3px 2px black, -3px 3px 2px black;
+    right: 20px;
+}
 
 /* Contacts */
 
@@ -388,6 +410,21 @@ footer {
         height: 25vh;
     }
 
+    #newest-work:hover {
+        scale: 1;
+    }
+    
+    #about-me:hover {
+        scale: 1;
+    }
+
+    #name-column {
+        display: none;
+    }
+    #name-bar {
+        display: flex;
+    }
+
     :root {
         --dot-size: 40px;
         --box-size: 525px;
@@ -419,13 +456,6 @@ footer {
         border: var(--thick-border);
     }
 
-    #newest-work:hover {
-        scale: 1;
-    }
-    
-    #about-me:hover {
-        scale: 1;
-    }
     :root {
         --bot-pos: 40vh;
         --dot-size: 35px;
