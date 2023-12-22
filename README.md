@@ -18,6 +18,8 @@ Here is a link to the deployed project: [https://jordaneburton.github.io/project
 * Clicking the links on the navigation bar leads to a 404 error
 * I did intend to have a wrapping ticker on the footer, but I wasn't able to finish it in time. I have made a Github Issue for it to complete it in the future.
 * Clicking the links in the credits does not update the color of their text shadows. Not noticable to user, but still irks me!!
+* Moving dots are offset ofset on phone
+* About Me section is non-functional on mobile/phone
 
 ### Dependencies
 
