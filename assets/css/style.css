@@ -79,6 +79,9 @@ nav {
         margin: 0 4%;
         transition: scale 1s, background-color 1s, rotate 1s, box-shadow 1.5s;
         transition-timing-function: ease-out 100ms;
+        > a {
+            text-decoration: none;
+        }
 
         > div {
             position: absolute;
